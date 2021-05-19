@@ -24,5 +24,7 @@ jobs:
           push: true
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          cache-from: ${{ steps.docker_meta.outputs.tags }}
+          cache-from: |
+            ghcr.io/${{ github.repository }}:master
+            ${{ steps.docker_meta.outputs.tags }}
           cache-to: type=inline
