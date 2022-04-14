@@ -1,2 +1,5 @@
 FROM fedora:35
-RUN dnf install -y gtk3-devel gtk4-devel libxslt gnome-shell make npm xorg-x11-server-Xvfb git
+
+RUN dnf update -y && \
+    dnf install -y \
+    gtk3-devel gtk4-devel libxslt gnome-shell make npm xorg-x11-server-Xvfb git
