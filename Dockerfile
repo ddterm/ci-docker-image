@@ -9,6 +9,7 @@ RUN dnf update -y && \
         make \
         npm \
         xorg-x11-server-Xvfb \
+        mesa-dri-drivers \
         git \
         xdotool \
         xautomation \
