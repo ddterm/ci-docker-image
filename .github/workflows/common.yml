@@ -1,8 +1,21 @@
-name: Build
+concurrency: ${{ github.workflow }}/${{ github.ref }}
 
 on:
-  push:
   workflow_dispatch:
+    inputs:
+      push:
+        description: "Push built image"
+        default: true
+        required: false
+        type: boolean
+
+  workflow_call:
+    inputs:
+      push:
+        description: "Push built image"
+        default: true
+        required: false
+        type: boolean
 
 jobs:
   build:
@@ -23,7 +36,7 @@ jobs:
         with:
           context: .
           pull: true
-          push: true
+          push: ${{ inputs.push }}
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
           cache-from: |
