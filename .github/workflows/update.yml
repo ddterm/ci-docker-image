@@ -1,0 +1,26 @@
+name: update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 17 1 * * *
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    outputs:
+      updates-available: ${{ steps.check.outputs.updates-available }}
+
+    steps:
+      - id: check
+        uses: ddterm/container-update-check@2022.09.07.2
+        with:
+          image: ghcr.io/${{ github.repository }}:master
+
+  rebuild:
+    needs: check
+    uses: ./.github/workflows/common.yml
+    with:
+      cache: false
+    if: ${{ needs.check.outputs.updates-available }}
