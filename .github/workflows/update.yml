@@ -24,3 +24,7 @@ jobs:
     with:
       cache: false
     if: ${{ fromJSON(needs.check.outputs.updates-available) }}
+
+  tag:
+    needs: rebuild
+    uses: ./.github/workflows/tag.yml

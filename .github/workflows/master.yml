@@ -1,11 +1,9 @@
-name: push
+name: master
 
 on:
   push:
-    branches-ignore:
+    branches:
       - master
-    tags:
-      - "*"
 
 permissions:
   packages: write
@@ -13,3 +11,7 @@ permissions:
 jobs:
   ci:
     uses: ./.github/workflows/common.yml
+
+  tag:
+    needs: ci
+    uses: ./.github/workflows/tag.yml

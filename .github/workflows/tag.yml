@@ -1,0 +1,17 @@
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - id: app-token
+        uses: getsentry/action-github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_KEY }}
+
+      - uses: ddterm/autotag@2022.09.07.7
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
