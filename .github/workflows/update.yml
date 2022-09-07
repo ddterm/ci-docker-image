@@ -28,3 +28,4 @@ jobs:
   tag:
     needs: rebuild
     uses: ./.github/workflows/tag.yml
+    secrets: inherit
