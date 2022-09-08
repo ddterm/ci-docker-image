@@ -9,22 +9,10 @@ on:
         required: false
         type: boolean
 
-      cache:
-        description: "Enable cache"
-        default: true
-        required: false
-        type: boolean
-
   workflow_call:
     inputs:
       push:
         description: "Push built image"
-        default: true
-        required: false
-        type: boolean
-
-      cache:
-        description: "Enable cache"
         default: true
         required: false
         type: boolean
@@ -55,4 +43,3 @@ jobs:
             ghcr.io/${{ github.repository }}:master
             ${{ steps.docker_meta.outputs.tags }}
           cache-to: type=inline
-          no-cache: ${{ !inputs.cache }}
