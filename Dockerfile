@@ -16,6 +16,7 @@ RUN dnf update -y && \
         sudo \
         patch \
         jq \
+        zip \
         unzip \
         podman \
         python3-gobject \
