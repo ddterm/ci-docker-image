@@ -15,4 +15,5 @@ jobs:
   tag:
     needs: ci
     uses: ./.github/workflows/tag.yml
-    secrets: inherit
+    permissions:
+      contents: write

@@ -6,12 +6,15 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     steps:
-      - id: app-token
-        uses: getsentry/action-github-app-token@v1
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_KEY }}
+      - id: tag
+        uses: ddterm/autotag@2022.09.07.7
 
-      - uses: ddterm/autotag@2022.09.07.7
+      - uses: actions/github-script@v6
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'push.yml',
+              ref: '${{ steps.tag.outputs.ref }}',
+            })
