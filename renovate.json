@@ -4,9 +4,13 @@
     "config:base"
   ],
   "docker": {
-    "pinDigests": true,
+    "pinDigests": true
+  },
+  "dockerfile": {
+    "automerge": true,
     "major": {
-      "enabled": false
+      "enabled": true,
+      "automerge": false
     }
   }
 }
