@@ -7,10 +7,6 @@
     "pinDigests": true
   },
   "dockerfile": {
-    "automerge": true,
-    "major": {
-      "enabled": true,
-      "automerge": false
-    }
+    "automerge": true
   }
 }
