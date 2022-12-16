@@ -21,6 +21,7 @@ RUN dnf update -y && \
         python3-gobject \
         tox \
         ImageMagick-libs \
+        xautomation \
         --nodocs \
         --setopt install_weak_deps=False \
     && dnf clean all -y
