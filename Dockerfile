@@ -14,6 +14,7 @@ RUN dnf update -y && \
         xautomation \
         sudo \
         patch \
+        diffutils \
         jq \
         zip \
         unzip \
