@@ -2,6 +2,7 @@ FROM registry.fedoraproject.org/fedora:latest@sha256:d61102cd2dfcb5ac29f752554c8
 
 RUN dnf update -y && \
     dnf install -y \
+        gjs \
         gtk3-devel \
         gtk4-devel \
         libxslt \
