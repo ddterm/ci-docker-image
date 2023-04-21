@@ -11,8 +11,6 @@ RUN dnf update -y && \
         xorg-x11-server-Xvfb \
         mesa-dri-drivers \
         git \
-        xdotool \
-        xautomation \
         sudo \
         patch \
         diffutils \
@@ -23,7 +21,6 @@ RUN dnf update -y && \
         python3-gobject \
         tox \
         ImageMagick-libs \
-        xautomation \
         --nodocs \
         --setopt install_weak_deps=False \
     && dnf clean all -y
