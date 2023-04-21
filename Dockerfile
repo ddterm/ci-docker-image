@@ -11,7 +11,6 @@ RUN dnf update -y && \
         xorg-x11-server-Xvfb \
         mesa-dri-drivers \
         git \
-        sudo \
         patch \
         diffutils \
         jq \
