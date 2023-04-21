@@ -2,23 +2,27 @@ FROM registry.fedoraproject.org/fedora:latest@sha256:b14af4b4e7abb04e3dd4d7194d9
 
 RUN dnf update -y && \
     dnf install -y \
-        gjs \
-        gtk3-devel \
-        gtk4-devel \
-        libxslt \
-        make \
-        npm \
-        xorg-x11-server-Xvfb \
+        /usr/bin/git \
+        /usr/bin/make \
+        /usr/bin/gjs \
+        /usr/bin/gtk-builder-tool \
+        /usr/bin/gtk4-builder-tool \
+        /usr/bin/xsltproc \
+        /usr/bin/npm \
+        /usr/bin/msgfmt \
+        /usr/bin/xgettext \
+        /usr/bin/msgmerge \
+        /usr/bin/msgcmp \
+        /usr/bin/patch \
+        /usr/bin/diff \
+        /usr/bin/jq \
+        /usr/bin/zip \
+        /usr/bin/unzip \
+        /usr/bin/xvfb-run \
+        /usr/bin/tox \
+        /usr/bin/podman \
         mesa-dri-drivers \
-        git \
-        patch \
-        diffutils \
-        jq \
-        zip \
-        unzip \
-        podman \
         python3-gobject \
-        tox \
         ImageMagick-libs \
         --nodocs \
         --setopt install_weak_deps=False \
