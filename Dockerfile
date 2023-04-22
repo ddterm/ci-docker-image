@@ -29,3 +29,6 @@ RUN dnf update -y && \
     && dnf clean all -y
 
 VOLUME /var/lib/containers
+
+# Avoid D-Bus access
+ENV GTK_A11Y=none
