@@ -32,3 +32,6 @@ VOLUME /var/lib/containers
 
 # Avoid D-Bus access
 ENV GTK_A11Y=none
+
+# To use python3-gobject. site-packages in a container are already a "clean" isolated environment
+ENV VIRTUALENV_SYSTEM_SITE_PACKAGES=true
