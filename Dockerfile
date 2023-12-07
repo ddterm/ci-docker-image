@@ -4,6 +4,9 @@ RUN dnf update -y && \
     dnf install -y \
         /usr/bin/git \
         /usr/bin/make \
+        /usr/bin/meson \
+        /usr/bin/glib-compile-schemas \
+        /usr/bin/update-desktop-database \
         /usr/bin/gjs \
         /usr/bin/gtk-builder-tool \
         /usr/bin/gtk4-builder-tool \
