@@ -13,6 +13,7 @@ RUN dnf update -y && \
         /usr/bin/xgettext \
         /usr/bin/msgmerge \
         /usr/bin/msgcmp \
+        /usr/bin/desktop-file-validate \
         /usr/bin/patch \
         /usr/bin/diff \
         /usr/bin/jq \
