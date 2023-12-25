@@ -33,3 +33,6 @@ VOLUME /var/lib/containers
 
 # Avoid D-Bus access
 ENV GTK_A11Y=none
+
+# Avoid Mesa errors
+ENV LIBGL_ALWAYS_SOFTWARE=true
