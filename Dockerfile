@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:39@sha256:d0b88207287a7ad06aa50f16f0aedb07302e56be4751229de3a6e7e63e12bab5
+FROM registry.fedoraproject.org/fedora:39@sha256:8857015f0f369fd716a7b1fd149f00e621cb3159fa6d17a3a041fa0006769b46
 
 RUN dnf update -y && \
     dnf install -y \
