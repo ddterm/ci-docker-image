@@ -25,6 +25,7 @@ RUN dnf update -y && \
         /usr/bin/xvfb-run \
         /usr/bin/tox \
         /usr/bin/podman \
+        /usr/bin/g++ \
         mesa-dri-drivers \
         python3-gobject \
         ImageMagick-libs \
