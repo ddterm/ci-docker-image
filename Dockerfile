@@ -33,7 +33,12 @@ RUN dnf update -y && \
         --setopt install_weak_deps=False \
     && dnf clean all -y
 
+RUN adduser -d /home/github-actions -m -u 1042 -U -G users,adm github-actions \
+    && echo "ALL ALL=NOPASSWD: ALL" >/etc/sudoers.d/nopasswd \
+    && chmod u+rw /etc/shadow
+
 VOLUME /var/lib/containers
+VOLUME /home/github-actions
 
 # Avoid D-Bus access
 ENV GTK_A11Y=none
