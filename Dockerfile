@@ -28,6 +28,7 @@ RUN dnf update -y && \
         /usr/bin/g++ \
         mesa-dri-drivers \
         python3-gobject \
+        python3-setproctitle \
         ImageMagick-libs \
         --nodocs \
         --setopt install_weak_deps=False \
