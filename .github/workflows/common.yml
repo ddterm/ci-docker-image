@@ -31,7 +31,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ghcr.io/${{ github.repository }}
-      - uses: docker/build-push-action@v6
+      - id: docker_build
+        uses: docker/build-push-action@v6
         with:
           context: .
           pull: true
@@ -43,3 +44,6 @@ jobs:
             ghcr.io/${{ github.repository }}:master
             ${{ steps.docker_meta.outputs.tags }}
           cache-to: type=inline
+      - run: >-
+          docker run --rm  -v ./test.sh:/test.sh:ro --privileged --cgroupns=host
+          ${{ steps.docker_build.outputs.imageid }} /test.sh
