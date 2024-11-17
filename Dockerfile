@@ -33,12 +33,12 @@ RUN dnf update -y && \
         ImageMagick-libs \
         --nodocs \
         --setopt install_weak_deps=False \
-    && rpm --setcaps shadow-utils \
     && dnf clean all -y
 
 RUN adduser -d /home/github-actions -m -u 1042 -U -G users,adm github-actions \
     && echo "ALL ALL=NOPASSWD: ALL" >/etc/sudoers.d/nopasswd \
-    && chmod u+rw /etc/shadow
+    && chmod u+rw /etc/shadow \
+    && rpm --setcaps shadow-utils
 
 VOLUME /var/lib/containers
 VOLUME /home/github-actions
