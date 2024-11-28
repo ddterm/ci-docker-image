@@ -1,15 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
-  "docker": {
-    "pinDigests": true
-  },
   "dockerfile": {
     "automerge": true,
     "major": {
       "enabled": false
     }
-  }
+  },
+  "packageRules": [
+    {
+      "matchCategories": [
+        "docker"
+      ],
+      "pinDigests": true
+    }
+  ]
 }
