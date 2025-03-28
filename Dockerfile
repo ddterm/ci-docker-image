@@ -27,6 +27,7 @@ RUN dnf update -y && \
         /usr/bin/podman \
         /usr/bin/g++ \
         /usr/bin/reuse \
+        /usr/bin/script \
         mesa-dri-drivers \
         python3-gobject \
         python3-setproctitle \
