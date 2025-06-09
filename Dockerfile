@@ -28,6 +28,7 @@ RUN dnf update -y && \
         /usr/bin/g++ \
         /usr/bin/reuse \
         /usr/bin/script \
+        /usr/bin/lsdiff \
         mesa-dri-drivers \
         python3-gobject \
         python3-setproctitle \
