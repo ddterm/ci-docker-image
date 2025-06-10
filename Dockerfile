@@ -29,6 +29,7 @@ RUN dnf update -y && \
         /usr/bin/reuse \
         /usr/bin/script \
         /usr/bin/lsdiff \
+        colorized-logs \
         mesa-dri-drivers \
         python3-gobject \
         python3-setproctitle \
