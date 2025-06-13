@@ -24,6 +24,7 @@ RUN dnf update -y && \
         /usr/bin/unzip \
         /usr/bin/xvfb-run \
         /usr/bin/tox \
+        /usr/bin/pip3 \
         /usr/bin/podman \
         /usr/bin/g++ \
         /usr/bin/reuse \
@@ -37,6 +38,11 @@ RUN dnf update -y && \
         --nodocs \
         --setopt install_weak_deps=False \
     && dnf clean all -y
+
+# renovate: datasource=pypi depName=tox-gh
+ARG TOXGH_VERSION=1.5.0
+
+RUN pip3 install --no-deps tox-gh==$TOXGH_VERSION
 
 RUN adduser -d /home/github-actions -m -u 1042 -U -G users,adm github-actions \
     && echo "ALL ALL=NOPASSWD: ALL" >/etc/sudoers.d/nopasswd \
