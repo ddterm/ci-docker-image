@@ -1,0 +1,26 @@
+name: cleanup
+
+on:
+  workflow_call:
+    inputs:
+      dry-run:
+        description: "Don't delete images, just print messages"
+        default: false
+        required: false
+        type: boolean
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  image:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: amezin/container-registry-prune-action@74a1459e57a1ed9de91138ef48832e57d8ebaa00 # v0.1.0
+        with:
+          name: ${{ github.event.repository.name }}
+          untagged-retention-duration: 1d
+          dry-run: ${{ inputs.dry-run }}

@@ -1,17 +1,24 @@
 name: push
+concurrency: ${{ github.workflow }}/${{ github.ref }}
 
 on:
+  workflow_dispatch:
   push:
     branches-ignore:
       - master
-      - renovate/**
     tags:
       - "*"
-  workflow_dispatch:
-
-permissions:
-  packages: write
 
 jobs:
-  ci:
-    uses: ./.github/workflows/common.yml
+  build:
+    uses: ./.github/workflows/build.yml
+    permissions:
+      contents: read
+      packages: write
+
+  release:
+    uses: ./.github/workflows/release.yml
+    with:
+      dry-run: true
+    permissions:
+      contents: read

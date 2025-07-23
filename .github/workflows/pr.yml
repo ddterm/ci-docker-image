@@ -1,11 +1,21 @@
 name: pr
+concurrency: ${{ github.workflow }}/${{ github.ref }}
 
 on:
-  pull_request:
+  - pull_request
+
+permissions:
+  contents: read
 
 jobs:
-  ci:
-    if: ${{ startsWith(github.event.pull_request.head.ref, 'renovate/') || github.event.pull_request.base.repo.node_id != github.event.pull_request.head.repo.node_id }}
-    uses: ./.github/workflows/common.yml
+  build:
+    if: github.event.pull_request.base.repo.node_id != github.event.pull_request.head.repo.node_id
+    uses: ./.github/workflows/build.yml
     with:
       push: false
+
+  release:
+    if: github.event.pull_request.base.repo.node_id != github.event.pull_request.head.repo.node_id
+    uses: ./.github/workflows/release.yml
+    with:
+      dry-run: true

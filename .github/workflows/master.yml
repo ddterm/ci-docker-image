@@ -1,20 +1,21 @@
 name: master
+concurrency: ${{ github.workflow }}/${{ github.ref }}
 
 on:
   push:
     branches:
       - master
 
-permissions:
-  packages: write
-
 jobs:
-  ci:
-    uses: ./.github/workflows/common.yml
+  build:
+    uses: ./.github/workflows/build.yml
+    permissions:
+      contents: read
+      packages: write
 
-  tag:
-    needs: ci
-    uses: ./.github/workflows/tag.yml
+  release:
+    needs: build
+    uses: ./.github/workflows/release.yml
     permissions:
       contents: write
       actions: write
