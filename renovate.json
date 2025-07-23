@@ -15,6 +15,10 @@
         "docker"
       ],
       "pinDigests": true
+    },
+    {
+      "extends": ["helpers:pinGitHubActionDigests", ":pinVersions"],
+      "versioning": "npm"
     }
   ]
 }
