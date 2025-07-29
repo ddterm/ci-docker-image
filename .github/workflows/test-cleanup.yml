@@ -7,10 +7,6 @@ on:
       - .github/workflows/cleanup.yml
       - .github.workflows/test-cleanup.yml
   push:
-    branches-ignore:
-      - master
-    tags:
-      - "*"
     paths:
       - .github/workflows/cleanup.yml
       - .github.workflows/test-cleanup.yml
