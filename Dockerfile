@@ -1,4 +1,4 @@
-FROM docker.io/library/fedora:42@sha256:e6903d9b1cc68be9bece455ee2529911b3d8efbad0516ea11bee1e93adff590f
+FROM docker.io/library/fedora:42@sha256:3da64cb89971a1cdbc6046e307eeebcb54f7281c0a606ee48d9995473f6b88d5
 
 RUN dnf update -y && \
     dnf install -y \
