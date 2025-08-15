@@ -6,7 +6,6 @@ RUN dnf update -y && \
         /usr/bin/make \
         /usr/bin/meson \
         /usr/bin/glib-compile-schemas \
-        /usr/bin/update-desktop-database \
         /usr/bin/gjs \
         /usr/bin/gtk-builder-tool \
         /usr/bin/gtk4-builder-tool \
@@ -17,23 +16,13 @@ RUN dnf update -y && \
         /usr/bin/msgmerge \
         /usr/bin/msgcmp \
         /usr/bin/desktop-file-validate \
-        /usr/bin/patch \
-        /usr/bin/diff \
-        /usr/bin/jq \
-        /usr/bin/zip \
-        /usr/bin/unzip \
         /usr/bin/xvfb-run \
         /usr/bin/tox \
         /usr/bin/podman \
         /usr/bin/g++ \
-        /usr/bin/reuse \
-        /usr/bin/script \
-        /usr/bin/lsdiff \
-        colorized-logs \
+        /usr/bin/pipetty \
         mesa-dri-drivers \
         python3-gobject \
-        python3-setproctitle \
-        ImageMagick-libs \
         --nodocs \
         --setopt install_weak_deps=False \
     && dnf clean all -y
