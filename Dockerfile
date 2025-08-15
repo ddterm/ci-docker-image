@@ -21,6 +21,7 @@ RUN dnf update -y && \
         /usr/bin/podman \
         /usr/bin/g++ \
         /usr/bin/pipetty \
+        /usr/bin/shellcheck \
         mesa-dri-drivers \
         python3-gobject \
         --nodocs \
