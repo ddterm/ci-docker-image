@@ -6,7 +6,6 @@ RUN dnf update -y && \
         /usr/bin/make \
         /usr/bin/meson \
         /usr/bin/glib-compile-schemas \
-        /usr/bin/gjs \
         /usr/bin/gtk-builder-tool \
         /usr/bin/gtk4-builder-tool \
         /usr/bin/xsltproc \
