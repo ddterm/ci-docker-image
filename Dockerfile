@@ -16,6 +16,8 @@ RUN dnf update -y && \
         /usr/bin/msgmerge \
         /usr/bin/msgcmp \
         /usr/bin/desktop-file-validate \
+        # required by testspace
+        /usr/bin/jq \
         /usr/bin/xvfb-run \
         /usr/bin/tox \
         /usr/bin/podman \
