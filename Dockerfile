@@ -1,4 +1,4 @@
-FROM docker.io/library/fedora:42@sha256:cf907e6a54b0ffd3275e03745b4914e748e69c352810918493ca91789188106c
+FROM docker.io/library/fedora:43@sha256:efbc076ea9463ae19a8babf9bdfe4c8fbb6b163a9db3ff58c25f2be7dbc743a6
 
 RUN dnf update -y && \
     dnf install -y \
@@ -25,6 +25,7 @@ RUN dnf update -y && \
         /usr/bin/shellcheck \
         mesa-dri-drivers \
         python3-gobject \
+        python3-pyyaml \
         --nodocs \
         --setopt install_weak_deps=False \
     && dnf clean all -y
