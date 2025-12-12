@@ -7,9 +7,6 @@ RUN dnf update -y && \
         /usr/bin/meson \
         /usr/bin/glib-compile-schemas \
         /usr/bin/gjs \
-        /usr/bin/gtk-builder-tool \
-        /usr/bin/gtk4-builder-tool \
-        /usr/bin/xsltproc \
         /usr/bin/npm \
         /usr/bin/msgfmt \
         /usr/bin/xgettext \
@@ -18,13 +15,11 @@ RUN dnf update -y && \
         /usr/bin/desktop-file-validate \
         # required by testspace
         /usr/bin/jq \
-        /usr/bin/xvfb-run \
         /usr/bin/tox \
         /usr/bin/podman \
         /usr/bin/g++ \
         /usr/bin/pipetty \
         /usr/bin/shellcheck \
-        mesa-dri-drivers \
         python3-gobject \
         --nodocs \
         --setopt install_weak_deps=False \
@@ -37,9 +32,3 @@ RUN adduser -d /home/github-actions -m -u 1042 -U -G users,adm github-actions \
 
 VOLUME /var/lib/containers
 VOLUME /home/github-actions
-
-# Avoid D-Bus access
-ENV GTK_A11Y=none
-
-# Avoid Mesa errors
-ENV LIBGL_ALWAYS_SOFTWARE=true
