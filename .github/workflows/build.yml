@@ -33,6 +33,7 @@ jobs:
           images: ghcr.io/${{ github.repository }}
           labels: |
             maintainer=Aleksandr Mezin <mezin.alexander@gmail.com>
+            com.github.containers.toolbox=true
 
       - id: docker_build
         uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
@@ -47,6 +48,21 @@ jobs:
             ghcr.io/${{ github.repository }}:master
             ${{ steps.docker_meta.outputs.tags }}
           cache-to: type=inline
+
+      - id: podman_pull
+        run: |
+          imageid="$(podman pull "docker-daemon:$IMAGE_ID")"
+          echo "imageid=$imageid" | tee "$GITHUB_OUTPUT"
+        env:
+          IMAGE_ID: ${{ steps.docker_build.outputs.imageid }}
+
+      - run: sudo apt-get update && sudo apt-get install -y podman-toolbox
+
+      - run: toolbox create -i "$IMAGE_ID" toolbox
+        env:
+          IMAGE_ID: ${{ steps.podman_pull.outputs.imageid }}
+
+      - run: toolbox run -c toolbox -- podman run --rm alpine:latest true
 
       - run: >-
           docker run --rm  -v ./test.sh:/test.sh:ro --privileged --cgroupns=host
