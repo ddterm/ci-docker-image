@@ -39,7 +39,7 @@ jobs:
             echo "*EOF*";
           } | tee "$GITHUB_OUTPUT"
 
-      - uses: amezin/container-registry-prune-action@3239b63db893af748b6cf2f35ce4ffdedb09a42e # v0.3.1
+      - uses: amezin/container-registry-prune-action@6a72f9bdaeb035d1c6e9ac78eb24ada02aa71e55 # v0.3.2
         with:
           name: ${{ github.event.repository.name }}
           tag-patterns: |
